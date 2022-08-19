@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ENV_USER_ID=$(id -u)
+ENV_GROUP_ID=$(id -g)
+
+ANACONDA_VERSION="3-2022.05"
+ANACONDA_ARCH="x86_64"
+ANACONDA_OS="Linux"
+ANACONDA_FILENAME="Anaconda${ANACONDA_VERSION}-${ANACONDA_OS}-${ANACONDA_ARCH}.sh"
+ANACONDA_URL="https://repo.anaconda.com/archive/${ANACONDA_FILENAME}"
