@@ -12,8 +12,8 @@ This script may break at any time.  If it does, please open an issue and I'll tr
 
 ## Installation instructions
 
-Please view them (./INSTALL.md)[HERE] .
+Please view them [./INSTALL.md](HERE).
 
 ## License
 
-Please view the license to this repository (./LICENSE.md)[HERE]
+Please view the license to this repository [./LICENSE.md](HERE)
