@@ -2,12 +2,12 @@
 
 source ./xx-vars.sh
 
-[ ! -z "~/.cache" ] && chown -R ${ENV_USER_ID}:${ENV_GROUP_ID} ~/.cache
-if [[ ! -z "~/.cache/bazelisk" ]]; then
+[ ! -z "$HOME/.cache" ] && chown -R ${ENV_USER_ID}:${ENV_GROUP_ID} ~/.cache
+if [ ! -z "$HOME/.cache/bazelisk" ]; then
 	chown -R ${ENV_USER_ID}:${ENV_GROUP_ID} ~/.cache/bazelisk
 	rm -rf ~/.cache/bazelisk
 fi
-mkdir ~/.cache/bazelisk
+mkdir -p $HOME/.cache/bazelisk
 
 [ -z "${HOME}/tensorflow" ] && mkdir -p $HOME/tensorflow
 git clone "https://github.com/tensorflow/tensorflow.git" $HOME/tensorflow
