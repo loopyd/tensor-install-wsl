@@ -12,8 +12,8 @@ This script may break at any time.  If it does, please open an issue and I'll tr
 
 ## Documentation
 
-The docs can be viewed here: [./docs/index.md](HERE).
+The docs can be viewed [here](./docs/index.md).
 
 ## License
 
-Please view the software license to this repository [./docs/LICENSE.md](HERE)
+Please view the software license to this repository [here](./docs/LICENSE.md)

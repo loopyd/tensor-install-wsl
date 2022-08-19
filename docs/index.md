@@ -9,6 +9,6 @@ This script may break at any time.  If it does, please open an issue and I'll tr
 
 ## Table of Contents
 
-* Index (This page)
-* [./INSTALL.md](Installation Instructions)
-* [./LICENSE.md](Software License (DBAD))
+* **Index** (This page)
+* [Installation Instructions](./INSTALL.md)
+* [Software License](./LICENSE.md)
