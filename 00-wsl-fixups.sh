@@ -3,6 +3,8 @@
 . ./xx-vars.sh
 . ./xx-github-credentials.sh
 
+[ ! -d "$(wslvar USERPROFILE)"/.docker/machine/certs ] && mkdir -p $(wslvar USERPROFILE)"/.docker/machine/certs
+
 if ! grep -Fxq "## BEGIN_DOCKER_FIXUP ##" ~/.bashrc \
   && ! grep -Fxq "## END_DOCKER_FIXUP ##" ~/.bashrc; then
         cat <<'EOF' >> ~/.bashrc
