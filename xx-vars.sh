@@ -12,5 +12,11 @@ ANACONDA_FILENAME="Anaconda${ANACONDA_VERSION}-${ANACONDA_OS}-${ANACONDA_ARCH}.s
 ANACONDA_URL="https://repo.anaconda.com/archive/${ANACONDA_FILENAME}"
 
 WSL_USERPROFILE=$(wslpath -a $(wslvar USERPROFILE))
+
+DOCKER_SSL_NAME="Docker Desktop - Federated SSL CA"
 DOCKER_SSL_CERT_PATH=${WSL_USERPROFILE}/.docker/machine/certs
 DOCKER_SSL_FILENAME=$( wslsys -R | awk 'match($0, /^(Linux Release: )(.*)( LTS)+$/, a) {print tolower(a[2])}' | sed -e 's/\ /\-/g' )-$( echo $RANDOM | md5sum | head -c 8 )
+DOCKER_SSL_PASSWORD=$( cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo ' ')
+DOCKER_SSL_SERVERIP="127.0.0.1"
+DOCKER_SSL_EXPIREDAYS=700
+DOCKER_SSL_CASUBJECTSTRING="/C=US/ST=California/L=Los\ Angeles/O=Sabertooth\ Media\ Group\ \,\ LLC/OU=IT/CN=sabertoothmediagroup.net/emailAddress=cert@sabertoothmediagroup.net"
