@@ -1,2 +1,3 @@
 *.save
-xx-*.sh
+xx-github-credentials.sh
+xx-vars.sh
