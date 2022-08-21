@@ -12,7 +12,7 @@ This script may break at any time.  If it does, please open an issue and I'll tr
 
 ## Documentation
 
-The docs can be viewed [here](./docs/index.md).
+The docs can be viewed on [loopyd.github.io](https://loopyd.github.io/tensor-install-wsl/)
 
 ## License
 
