@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ ! -z ./xx-vars.sh ] && echo "Environment already setup.  Nothing to do" && exit 1
+[ -f ./xx-vars.sh ] && echo "Environment already setup.  Nothing to do" && exit 1
 
 # default xx-vars config.
 ENV_GROUP_ID=$(id -g)
