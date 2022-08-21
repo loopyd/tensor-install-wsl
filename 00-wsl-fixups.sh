@@ -3,13 +3,15 @@
 . ./xx-vars.sh
 . ./xx-github-credentials.sh
 
-[ ! -d "$(wslvar USERPROFILE)"/.docker/machine/certs ] && mkdir -p $(wslvar USERPROFILE)"/.docker/machine/certs
+touch $HOME/.hushlogin
+
+[ ! -d "${WSL_USERPROFILE}/.docker/machine/certs" ] && mkdir -p "${WSL_USERPROFILE}/.docker/machine/certs"
 
 if ! grep -Fxq "## BEGIN_DOCKER_FIXUP ##" ~/.bashrc \
-  && ! grep -Fxq "## END_DOCKER_FIXUP ##" ~/.bashrc; then
-        cat <<'EOF' >> ~/.bashrc
+   && ! grep -Fxq "## END_DOCKER_FIXUP ##" ~/.bashrc ; then
+        cat <<EOF >> ~/.bashrc
 ## BEGIN_DOCKER_FIXUP ##
-export DOCKER_CERT_PATH=$(wslpath "$(wslvar USERPROFILE)")/.docker/machine/certs
+export DOCKER_CERT_PATH="${WSL_USERPROFILE}/.docker/machine/certs"
 export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST='tcp://0.0.0.0:2375'
 ## END_DOCKER_FIXUP ##

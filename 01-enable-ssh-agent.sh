@@ -3,9 +3,10 @@
 . ./xx-vars.sh
 . ./xx-github-credentials.sh
 
-if ! grep -Fxq "## BEGIN_ENABLE_SSH_AGENT ##" ~/.bashrc \
-  && ! grep -Fxq "## END_ENABLE_SSH_AGENT ##" ~/.bashrc; then
+if ! grep -Fxq "## BEGIN_ENABLE_SSH_AGENT ##" ~/.bashrc && \
+   ! grep -Fxq "## END_ENABLE_SSH_AGENT ##" ~/.bashrc; then
 	cat <<'EOF' >> ~/.bashrc 
+fi
 
 ## BEGIN_ENABLE_SSH_AGENT ##
 SSH_ENV=~/.ssh/agent.env
