@@ -40,18 +40,15 @@ __authorized_keys_write() {
 	echo $(cat ${GITHUB_KEYFILE}.pub) | sudo -u $USER tee -a $HOME/.ssh/authorized_keys > /dev/null
 }
 
-if [ ! -z "${GITHUB_KEYFILE}" ] || [ ! -z "${GITHUB_KEYFILE}.pub" ]; then
-	[ ! -z "${GITHUB_KEYFILE}" ] && rm -f "${GITHUB_KEYFILE}"
-	if [ ! -z "${GITHUB_KEYFILE}.pub" ]; then
-		__authorized_keys_clear
-		rm -f "${GITHUB_KEYFILE}.pub"
-	fi
-	ssh-keygen -q -t ed25519 -C "${GITHUB_EMAIL}" -f "${GITHUB_KEYFILE}" -N ''
-	ssh-add "${GITHUB_KEYFILE}"
-	SSH_PUB_ID=$(cat "${GITHUB_KEYFILE}".pub)
-	# in the unlikely, god-tier event that we somehow generate a new public key as the last (please buy a goddamn lottery ticket)
+[ ! -z "${GITHUB_KEYFILE}" ] && rm -f "${GITHUB_KEYFILE}"
+if [ ! -z "${GITHUB_KEYFILE}.pub" ]; then
 	__authorized_keys_clear
-	__authorized_keys_write
+	rm -f "${GITHUB_KEYFILE}.pub"
 fi
+ssh-keygen -q -t ed25519 -C "${GITHUB_EMAIL}" -f "${GITHUB_KEYFILE}" -N ''
+ssh-add "${GITHUB_KEYFILE}"
+SSH_PUB_ID=$(cat "${GITHUB_KEYFILE}".pub)
+__authorized_keys_clear
+__authorized_keys_write
 
 source ~/.bashrc

@@ -27,7 +27,7 @@ mkdir D:\wsl
 cd D:\wsl
 wsl --export -d Ubuntu-20.04 D:\wsl\Ubuntu-20.04.tar
 wsl --unregister -d Ubuntu-20.04
-wsl --import Ubuntu-20.04 Ubuntu-20.04.tar .\Ubuntu-20.04r
+wsl --import Ubuntu-20.04 Ubuntu-20.04.tar .\Ubuntu-20.04
 ```
 
 ## Copying the install scripts
@@ -45,28 +45,28 @@ Now you can go ahead and move back into your WSL2 instance:
 wsl -d Ubuntu-20.04 -u your_username
 ```
 
-## Configure it.
+## Generating your configuration
 
-You need to run ``nano ~/xx-github.sh`` to set up credential to login to github.  THIS IS REQURIED.  Reason:  git use in docker for some of the build steps, general best-practices.
+1.  Open ``xx-github-credentials.sh`` in the editor of your choice  to set up credential to login to github.
+    > **NOTICE**:  THIS IS REQURIED.  Reason:  git use in docker for some of the build steps, general best-practices.
+2.  Run ``00-init-env.sh``.  This will generate ``xx-vars.sh``, containing a default, auto-generated configuration for you.
+    > **NOTICE**: You can open ``xx-vars.sh`` in your favorite editor to customize this.  Make sure you do it **before** the next step!
 
-**Optional**:  Run ``nano ~/xx-vars.sh`` if you want to insepct some things or change them.
+After you have finished customizing yoru configuration, you're ready to run!
 
-> Hey editor wars people, I don't care.  Don't MPR my README because I didn't use vim in my installer manual.  Thanks!
+## Building
 
-Your own installer chain could hook onto mine and customize it by modifying both of these files!  I have accounted for this situation with some very particular system checks and conditional code.  You're welcome.
-
-## Run it.
-
-Here you go, Mr. or Mrs. Copy-paste:
+Here you go:
 
 ```
 cd ~/
 chmod +x ./*-*.sh
-./99-install-tensorflow.sh
+./99-build.sh
 ```
 
 You'll now have tensorflow (in a few hours)  Go get a coffee or something.  This is that wait-it-while-i-bake-it step you should all be familiar with if you happened upon GentooDAD back in the day.  :-)
 
-## Enjoy.
+## Run
 
-I haven't put this piece in the manual yet, because I've not finished testing.  But thanks for reading.  I got really tired of typing documentation, so I'll replace this later on!
+I haven't put this piece in the manual yet, because I've not finished with the code quite yet.
+
